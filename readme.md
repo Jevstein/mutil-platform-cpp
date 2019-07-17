@@ -1,17 +1,19 @@
-һ��ǰ��
-	����һ�����̻������c++���������֧�֣�
-	1.��ƽ̨Ӧ�ã�linux��windows��mac��android��iOS
-	2.�����Լ��ɣ�c++��java��objective-c
-	3.�Զ������룺����python�ű��Զ�����ϵͳƽ̨һ������
+未完...
 
-  ������֪����ǧ������������c��������ҵ�����ǧ���򻯣�c������Ϊ��ӽ��ײ�ĸ߼����ԣ���ĿǰΪֹ��
-����û�е��������а��ǰʮ��������������Ƶ��������Ϸ�����׷������ܵ�������������c��c++��Ϊsdk�����
-��֧���ϲ���java��c#���Եȿ�����Ӧ�á�
-  �����̷���������һ��֧����������ļ�������Ϊc++ sdk�ļ򵥹��ܣ���ʾ��linux��windows��mac��android��iOS
-�Ȳ�ͬ������ϵͳƽ̨�£�ʹ��c++��java��objective-c�ȸ��ֲ�ͬ�ϲ����Եĵ��÷�ʽ��������ƽ̨�������Ե���
-c++�����
+一、前言  
+	这是一个工程化级别的c++组件范例，支持：  
+	1.跨平台应用：linux、windows、mac、android、iOS  
+	2.多语言集成：c++，java，objective-c  
+	3.自动化编译：利用python脚本自动根据系统平台一键编译  
 
-����ʹ�÷���
-	���doc/doc.md
+  众所周知：“千年的语言万年的c”。无论业界如何千变万化，c语言作为最接近底层的高级语言，到目前为止，
+从来没有跌出过排行榜的前十名。尤其在音视频开发、游戏引擎等追求高性能的领域，往往采用c或c++作为sdk组件，
+来支撑上层以java、c#语言等开发的应用。  
+  本工程范例，就以一个支持四则运算的计算器作为c++ sdk的简单功能，演示在linux、windows、mac、android、iOS
+等不同的主流系统平台下，使用c++，java，objective-c等各种不同上层语言的调用方式。即：跨平台、多语言调用
+c++组件。   
+  
+二、使用方法  
+	详见doc/doc.md  
 
-����Ŀ¼�ṹ
+三、目录结构  
