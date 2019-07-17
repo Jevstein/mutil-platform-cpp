@@ -54,6 +54,7 @@ ipch/
 *.sdf
 *.cachefile
 ~AutoRecover.*
+*.vc.*
 
 # Visual Studio profiler
 *.psess
