@@ -5,8 +5,8 @@
 class Calc : public ICalc
 {
 public:
-	Calc(void);
-	~Calc(void);
+	Calc();
+	virtual ~Calc();
 
 public:
     virtual const char* note();

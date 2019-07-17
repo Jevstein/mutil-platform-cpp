@@ -15,17 +15,22 @@
 #	endif//CALC_SDK_DLL_EXPORTS
 #	define CALLCON /*__stdcall*/
 #else
-#	define SDK_API
+#	define SDK_API extern
 #	define CALLCON
 #endif//WIN32
 
-struct ICalcCbk
+//#if defined(__cplusplus)
+class ICalcCbk
 {
+public:
+    virtual ~ICalcCbk(){}
 	virtual int on_result(const char *result) = 0;
 };
 
-struct ICalc
+class ICalc
 {
+public:
+    virtual ~ICalc(){}
     virtual const char* note() = 0;
     virtual void bind_cbk(ICalcCbk* cbk) = 0;
 	
@@ -34,6 +39,7 @@ struct ICalc
 	virtual double mul(double a, double b) = 0;
 	virtual double div(double a, double b) = 0;
 };
+//#endif//__cplusplus
 
 SDK_API ICalc* CALLCON jvt_create_calc();
 SDK_API	void CALLCON jvt_destroy_calc(ICalc* calc);

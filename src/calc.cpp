@@ -4,12 +4,12 @@
 #define MIN_VALUE 1e-8
 #define IS_DOUBLE_ZERO(d)  (fabs(d) < MIN_VALUE)
 
-Calc::Calc(void)
+Calc::Calc()
 : cbk_(NULL)
 {
 }
 
-Calc::~Calc(void)
+Calc::~Calc()
 {
 }
 

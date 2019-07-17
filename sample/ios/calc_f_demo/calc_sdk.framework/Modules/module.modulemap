@@ -1,0 +1,6 @@
+framework module calc_sdk {
+  umbrella header "calc_sdk.h"
+
+  export *
+  module * { export * }
+}
