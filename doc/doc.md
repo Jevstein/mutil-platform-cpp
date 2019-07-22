@@ -169,9 +169,9 @@ SDK_API	void CALLCON jvt_destroy_calc(ICalc* calc);
 ```  
 
 * step5:
-展开“Products”节点，发现“libcalc_sdk.a”由红色变成了黑色，即编译成功后。通过右键选择刚刚生成的静态库“libcalc_sdk.a”，在右键菜单中选择“Show in Finder”可以找到该静态库文件
+展开“Products”节点，发现“libcalc_sdk.a”由红色变成了黑色，即编译成功后。通过右键选择刚刚生成的静态库“libcalc_sdk.a”，在右键菜单中选择“Show in Finder”可以找到该静态库文件 
 
-
+注意：为了保持工程一致，编译前自定义.a的生成路径，如: ![图5](images\ios\a.5.2.jpg)  
 
 ####  6.1.1. <a name='Xcodec'></a>利用Xcode生成c++静态库的方法步骤
 * 操作步骤：  
