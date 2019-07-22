@@ -15,9 +15,7 @@
 		4F621E1422DF3062007DDE99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F621E1322DF3062007DDE99 /* main.m */; };
 		4F621E1E22DF3063007DDE99 /* calc_f_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F621E1D22DF3063007DDE99 /* calc_f_demoTests.m */; };
 		4F621E2922DF3063007DDE99 /* calc_f_demoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F621E2822DF3063007DDE99 /* calc_f_demoUITests.m */; };
-		4F621E3922DF34B8007DDE99 /* calc_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F621E3822DF34B8007DDE99 /* calc_sdk.framework */; };
-		4F621E3A22DF3728007DDE99 /* calc_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F621E3822DF34B8007DDE99 /* calc_sdk.framework */; };
-		4F621E3B22DF3728007DDE99 /* calc_sdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F621E3822DF34B8007DDE99 /* calc_sdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F621E3E22E007A7007DDE99 /* calc_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F621E3D22E007A7007DDE99 /* calc_sdk.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +42,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4F621E3B22DF3728007DDE99 /* calc_sdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +65,7 @@
 		4F621E2422DF3063007DDE99 /* calc_f_demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calc_f_demoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F621E2822DF3063007DDE99 /* calc_f_demoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = calc_f_demoUITests.m; sourceTree = "<group>"; };
 		4F621E2A22DF3063007DDE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F621E3822DF34B8007DDE99 /* calc_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = calc_sdk.framework; sourceTree = "<group>"; };
+		4F621E3D22E007A7007DDE99 /* calc_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = calc_sdk.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F621E3A22DF3728007DDE99 /* calc_sdk.framework in Frameworks */,
-				4F621E3922DF34B8007DDE99 /* calc_sdk.framework in Frameworks */,
+				4F621E3E22E007A7007DDE99 /* calc_sdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +101,7 @@
 				4F621E1C22DF3063007DDE99 /* calc_f_demoTests */,
 				4F621E2722DF3063007DDE99 /* calc_f_demoUITests */,
 				4F621E0222DF3062007DDE99 /* Products */,
-				4F621E3822DF34B8007DDE99 /* calc_sdk.framework */,
+				4F621E3D22E007A7007DDE99 /* calc_sdk.framework */,
 			);
 			sourceTree = "<group>";
 		};
