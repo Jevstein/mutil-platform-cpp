@@ -152,32 +152,33 @@ SDK_API	void CALLCON jvt_destroy_calc(ICalc* calc);
   然而，.framework有所不同，它实际上是一种打包方式，将库的二进制文件，头文件和有关的资源文件打包到一起，方便管理和分发。在 iOS 8 之前，iOS 平台不支持使用动态 .framework，开发者可以使用的.framework 只有苹果自家的 UIKit.framework，Foundation.framework 等。此时，开发者想要在 iOS 平台共享代码，唯一的选择就是打包成静态库 .a 文件，同时附上头文件（例如微信的SDK）。但是这样的打包方式不够方便，使用时也比较麻烦，大家还是希望共享代码都能能像 Framework 一样，直接扔到工程里就可以用。于是人们想出了各种奇技淫巧去让 Xcode Build 出 iOS 可以使用的 Framework，但这种方法产生的 Framework 还有 “伪”(Fake) Framework 和 “真“(Real) Framework 的区别。  
   当iOS 8/Xcode 6 推出之后，iOS 平台添加了动态库的支持，同时 Xcode 6 也原生自带了 Framework 支持（动态和静态都可以），上面提到的的奇技淫巧也就没有必要了。为什么 iOS 8 要添加动态库的支持？唯一的理由大概就是 Extension 的出现。Extension 和 App 是两个分开的可执行文件，同时需要共享代码，这种情况下动态库的支持就是必不可少的了。但是这种动态 Framework 和系统的 UIKit.Framework 还是有很大区别。系统的 Framework 不需要拷贝到目标程序中，我们自己做出来的 Framework 哪怕是动态的，最后也还是要拷贝到 App 中（App 和 Extension 的 Bundle 是共享的），因此苹果又把这种 Framework 称为 Embedded Framework。
 
-###  6.1. <a name='c.a'></a>编译链接c++静态库(.a)
+###  6.1. <a name='c.a'></a>生成和加载c++静态库(.a)
+
+####  6.1.1. <a name='Xcodec'></a>通过Xcode生成c++静态库的方法步骤
 * step1:  
-运行Xcode，选择“Create a new Xcode project", 依次选择“iOS”->“Framework & Library”->“Cocoa Touch Static Library”。如图: ![图1](images/ios/a_1.jpg)  
+运行Xcode，选择“Create a new Xcode project", 依次选择“iOS”->“Framework & Library”->“Cocoa Touch Static Library”。如图: ![图1](images/ios/a.1.jpg)  
 
 * step2:  
-在“Product Name”中输入产品名称, 并选择一个目录进行保存，然后点击“Create”, 如图: ![图2](images/ios/a_2.jpg)     
+在“Product Name”中输入产品名称, 并选择一个目录进行保存，然后点击“Create”, 如图: ![图2](images/ios/a.2.jpg)     
 
 * step3:  
-添加源代码，右键点击项目，在展开的右键菜单中选择“Add Files to...", 选择指定的目录(src/*, 添加过后文件会变灰)，请务必勾选“Create Groups”。注意，默认情况下“Create Groups”被折叠掩藏了，点击options按钮展开， 如图: ![图3](images/ios/a_3.png)  
+添加源代码，右键点击项目，在展开的右键菜单中选择“Add Files to...", 选择指定的目录(src/*, 添加过后文件会变灰)，请务必勾选“Create Groups”。注意，默认情况下“Create Groups”被折叠掩藏了，点击options按钮展开， 如图: ![图3](images/ios/a.3.png)  
 
 * step4:  
-我们可以选择编译一个真机的静态库，或编译任一模拟器（如“iPhone 6”）的静态库。展开“Products”菜单，点击“Build”进行编译（或按住Comand + B进行编译）。  
-注意, 可以通过命令将真机和模拟器合并，如：
-```
-```  
-
+我们可以选择编译一个真机的静态库，或编译任一模拟器（如“iPhone 8”）的静态库。展开“Products”菜单，点击“Build”进行编译（或按住Comand + B进行编译）。  
+【注意】如何编译静态库即可以在真机上运行，又可以在模拟器等多CPU架构下运行呢？  
+  首先，将"Build Settings/Build Active Architecture Only"的设置改为NO。其中Debug:Yes表示只编译选中模拟器对应的架构,No则为编译所有模拟器支持的cup架构。如图：![图4](images/ios/a.4.jpg)  
+  然后，通过 lipo 命令将真机和模拟器的静态库进行合并，如打开终端输入：
+    ```
+    lipo -create iphoneos/libcalc_sdk.a iphonesimulator/libcalc_sdk.a -output libcalc_sdk.a
+    ```   
+ 
 * step5:
-展开“Products”节点，发现“libcalc_sdk.a”由红色变成了黑色，即编译成功后。通过右键选择刚刚生成的静态库“libcalc_sdk.a”，在右键菜单中选择“Show in Finder”可以找到该静态库文件 
-
-注意：为了保持工程一致，编译前自定义.a的生成路径，如: ![图5](images/ios/a_5_2.jpg)  
-
-####  6.1.1. <a name='Xcodec'></a>利用Xcode生成c++静态库的方法步骤
-* 操作步骤：  
+展开“Project navigator/Products”节点，发现“libcalc_sdk.a”由红色变成了黑色，即编译成功。在刚刚生成的静态库“libcalc_sdk.a”上，右键菜单中选择“Show in Finder”并可以找到该静态库文件。  
+【注意】为了保持我们的工程一致，编译前可自定义libcalc_sdk.a生成的路径，如: ![图5.2](images/ios/a.5.2.jpg)   
 
 ####  6.1.2. <a name='objective-cc'></a>objective-c加载c++静态库的方法步骤
-* 操作步骤：  
+  
 
 ####  6.1.3. <a name='-1'></a>遇到的问题及解决方法
 * 1.copy items if needs
