@@ -154,13 +154,13 @@ SDK_API	void CALLCON jvt_destroy_calc(ICalc* calc);
 
 ###  6.1. <a name='c.a'></a>编译链接c++静态库(.a)
 * step1:  
-运行Xcode，选择“Create a new Xcode project", 依次选择“iOS”->“Framework & Library”->“Cocoa Touch Static Library”。如图: ![图1](images\ios\a_1.jpg)  
+运行Xcode，选择“Create a new Xcode project", 依次选择“iOS”->“Framework & Library”->“Cocoa Touch Static Library”。如图: ![图1](images/ios/a_1.jpg)  
 
 * step2:  
-在“Product Name”中输入产品名称, 并选择一个目录进行保存，然后点击“Create”, 如图: ![图2](images\ios\a_2.jpg)     
+在“Product Name”中输入产品名称, 并选择一个目录进行保存，然后点击“Create”, 如图: ![图2](images/ios/a_2.jpg)     
 
 * step3:  
-添加源代码，右键点击项目，在展开的右键菜单中选择“Add Files to...", 选择指定的目录(src/*, 添加过后文件会变灰)，请务必勾选“Create Groups”。注意，默认情况下“Create Groups”被折叠掩藏了，点击options按钮展开， 如图: ![图3](images\ios\a_3.png)  
+添加源代码，右键点击项目，在展开的右键菜单中选择“Add Files to...", 选择指定的目录(src/*, 添加过后文件会变灰)，请务必勾选“Create Groups”。注意，默认情况下“Create Groups”被折叠掩藏了，点击options按钮展开， 如图: ![图3](images/ios/a_3.png)  
 
 * step4:  
 我们可以选择编译一个真机的静态库，或编译任一模拟器（如“iPhone 6”）的静态库。展开“Products”菜单，点击“Build”进行编译（或按住Comand + B进行编译）。  
@@ -171,7 +171,7 @@ SDK_API	void CALLCON jvt_destroy_calc(ICalc* calc);
 * step5:
 展开“Products”节点，发现“libcalc_sdk.a”由红色变成了黑色，即编译成功后。通过右键选择刚刚生成的静态库“libcalc_sdk.a”，在右键菜单中选择“Show in Finder”可以找到该静态库文件 
 
-注意：为了保持工程一致，编译前自定义.a的生成路径，如: ![图5](images\ios\a_5_2.jpg)  
+注意：为了保持工程一致，编译前自定义.a的生成路径，如: ![图5](images/ios/a_5_2.jpg)  
 
 ####  6.1.1. <a name='Xcodec'></a>利用Xcode生成c++静态库的方法步骤
 * 操作步骤：  
