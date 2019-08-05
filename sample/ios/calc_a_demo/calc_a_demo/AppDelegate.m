@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  calc_a_demo
 //
-//  Created by hdk on 2019/7/17.
-//  Copyright © 2019年 jevstein. All rights reserved.
+//  Created by hdk on 2019/8/5.
+//  Copyright © 2019年 Jevstein. All rights reserved.
 //
 
 #import "AppDelegate.h"

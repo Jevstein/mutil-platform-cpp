@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../../../sample/ios/calc_a_demo/calc_a_demo.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

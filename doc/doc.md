@@ -5,11 +5,12 @@
 * 4. [mac下的c++组件调用](#macc)
 * 5. [android下的c++组件调用](#androidc)
 * 6. [iOS下的c++组件调用](#iOSc)
-	* 6.1. [编译链接c++静态库(.a)](#c.a)
-		* 6.1.1. [利用Xcode生成c++静态库的方法步骤](#Xcodec)
-		* 6.1.2. [objective-c加载c++静态库的方法步骤](#objective-cc)
+	* 6.1. [生成和加载c++静态库(.a)](#c.a)
+		* 6.1.1. [通过Xcode生成c++静态库的方法步骤](#Xcodec)
+		* 6.1.2. [xcode下objective-c加载c++静态库的方法步骤](#xcodeobjective-cc)
 		* 6.1.3. [遇到的问题及解决方法](#-1)
 	* 6.2. [打包c++静态或动态库(.framework)](#c.framework)
+	* 6.3. [自动化脚本编译示例](#-1)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -177,11 +178,79 @@ SDK_API	void CALLCON jvt_destroy_calc(ICalc* calc);
 展开“Project navigator/Products”节点，发现“libcalc_sdk.a”由红色变成了黑色，即编译成功。在刚刚生成的静态库“libcalc_sdk.a”上，右键菜单中选择“Show in Finder”并可以找到该静态库文件。  
 【注意】为了保持我们的工程一致，编译前可自定义libcalc_sdk.a生成的路径，如: ![图5.2](images/ios/a.5.2.jpg)   
 
-####  6.1.2. <a name='objective-cc'></a>objective-c加载c++静态库的方法步骤
-  
+####  6.1.2. <a name='xcodeobjective-cc'></a>xcode下objective-c加载c++静态库的方法步骤
+* step1:  
+运行Xcode，选择“Create a new Xcode project", 依次选择“iOS”->“Application”->“Single View App”。如图: ![图1](images/ios/da.1.png)    
+
+* step2:  
+在“Product Name”中输入产品名称, 并选择一个目录进行保存，然后点击“Create”, 如图: ![图2](images/ios/da.2.png)  
+
+* step3:  
+在"Build Settings/Header Search Paths"下填入包含sdk.h的文件路径, 如图: ![图3](images/ios/da.3.png)  
+
+* step4:  
+将libcalc_sdk.a拖拽到项目下，会弹出对话框，在对话框中勾选“Copy items if needed”和“Create Groups”， 如图: ![图4](images/ios/da.4.png)  
+
+* step5:  
+为了支持c++程序，需要将.m文件改为.mm文件， 如图: ![图5](images/ios/da.5.png)  
+测试代码如下:  
+```
+// 定义c函数指针类型: 因为c++无法直接使用oc对象，需要通过c函数操作oc
+typedef void (*ResultHandler)(void *user, const char *msg);
+
+class CalcCbk: public ICalcCbk
+{
+public:
+    CalcCbk() : user_(NULL) {}
+    virtual ~CalcCbk() {}
+    
+    void registerHandle(void *user, ResultHandler func) { this->user_ = user; this->func_ = func; }
+    
+public:
+    virtual int on_result(const char *result) {
+        if (user_)  func_(user_, result);
+        else        printf("'%s'->", result);
+        return 0;
+    }
+
+private:
+    void *user_;
+    ResultHandler func_;
+};
+
+- (void)calcTest{
+    [self setOutput:@"=== This is an example of using a static library in iOS ==="];
+    
+    ICalc *calc = jvt_create_calc();
+    if (calc){
+        [self setOutput: [NSString stringWithFormat:@"note: %s",calc->note()]];
+        //[self setOutput: @"bind calc callback"];
+        CalcCbk cbk;   calc->bind_cbk(&cbk);
+        cbk.registerHandle((__bridge void*)self, onResultHandler);
+        
+        int a = 100;
+        int b = 10;
+        [self setOutput: [NSString stringWithFormat:@"add(%d, %d) = %d", a, b, calc->add(a, b)]];
+        [self setOutput: [NSString stringWithFormat:@"sub(%d, %d) = %d", a, b, calc->sub(a, b)]];
+        [self setOutput: [NSString stringWithFormat:@"mul(%d, %d) = %.2f", a, b, calc->mul((double)a, (double)b)]];
+        [self setOutput: [NSString stringWithFormat:@"div(%d, %d) = %.2f", a, b, calc->div((double)a, (double)b)]];
+        
+        jvt_destroy_calc(calc);
+    } else {
+        [self setOutput: @"error: failed to call jvt_create_calc!"];
+    }
+    
+    [self setOutput: @"========= the end ========="];
+}
+```
+
+
+* step6: 运行! 如图: ![图6](images/ios/da.6.png)   
 
 ####  6.1.3. <a name='-1'></a>遇到的问题及解决方法
 * 1.copy items if needs
 * 
 
-###  6.2. <a name='c.framework'></a>打包c++静态或动态库(.framework)
+###  6.2. <a name='c.framework'></a>打包c++静态或动态库(.framework)  
+
+###  6.3. <a name='-1'></a>自动化脚本编译示例

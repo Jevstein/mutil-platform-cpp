@@ -250,7 +250,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CONFIGURATION_BUILD_DIR = "../../../../../lib/ios/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_BUILD_DIR = "../../../../lib/ios/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
