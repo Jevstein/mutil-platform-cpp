@@ -1,93 +1,50 @@
 #**********************************************************
 #
 # by jevstein
-# 2019/08/05
+# 2019/08/08
 #
-# DEBUG	: DEBUG can be set to YES to include debug info, or NO otherwise(RELEASE)
-#		  you can also use like this: make DEBUG:=NO
+# Note: generate corresponding multiple static libraries, 
+#		dynamic libraries, executable files and other ELF files.
+#
 #**********************************************************
 
-# 1.CONFIG
-DEBUG 		:= YES
-APP			:= libcalc_sdk
-APP_OUT		:= libcalc_sdk.a
-ROOT_DIR	:= ../../..
-PROJECT_DIR := .
-OUT_DIR		:= $(ROOT_DIR)/lib/ios
-DEFS_DIR	:= 
-INCS_DIR	:= -I$(ROOT_DIR)/include
-LIBS_DIR	:= 
-LIBS		:= 
-VPATH		:= $(ROOT_DIR)/src
-SRCS		:= $(wildcard $(ROOT_DIR)/src/*.cpp)
-platform	:= ios_i386
+# target_plat = ios
+# platform    = ios64
+# DEBUG 		= NO
+#
+# include app.mk
 
-# 2.TOOL CHAIN
-# CXX				:= clang++
-COMMON_FLAGS	:= 
-# CXX_FLAGS		:= $(COMMON_FLAGS)
-MKDIR_P     	:= mkdir -p
-CP          	:= cp
-RM				:= rm
-AR				:= ar rcs
-INSTALL			:= $(CP)
+DEBUG 		     = NO
+IOS_PLATFORMS    = ios32 ios64 ios_sim32 ios_sim64
+MAC_PLATFORMS    = x86_32 x86_64
+LINUX_PLATFORMS  = arm32、arm64、X86_32、X86_64
 
-ifeq ( $(findstring ios_i386, $(platform)), ios_i386)
-    CXX = xcrun -sdk iphonesimulator clang
-    CXX_FLAGS += $(COMMON_FLAGS) -Wall -O3 -arch i386 -mios-simulator-version-min=6.0  -DIOS
-    LDFLAGS += -arch i386 -mios-simulator-version-min=6.0 -Wl, -Bsymbolic-functions
-else ifeq ( $(findstring ios64, $(platform)), ios64)
-    CXX = xcrun -sdk iphoneos clang
-    CXX_FLAGS += $(COMMON_FLAGS) -Wall -O3 -arch arm64 -mios-version-min=6.0  
-    LDFLAGS += -arch arm64 -mios-version-min=6.0 -Wl, -Bsymbolic-functions
-endif
+all: ios mac
+	$(info all success!)
+	
+ios:
+	@for i in $(IOS_PLATFORMS);                         \
+	do                                                  \
+		echo ========= compile [ios.$$i] =========;     \
+		$(MAKE) -f app.mk target_plat=ios platform=$$i; \
+	done
 
-ifeq ($(DEBUG), YES)
-    OBJ_DIR		:= Debug
-else
-    OBJ_DIR		:= Release
-endif
+mac:
+	@for i in $(MAC_PLATFORMS);                         \
+	do                                                  \
+		echo ========= compile [mac.$$i] =========;     \
+		$(MAKE) -f app.mk target_plat=mac platform=$$i; \
+	done
 
-# 3.FILES
-SRCS 	:= $(notdir $(SRCS))
-OBJS	:= $(addsuffix .o, $(basename $(SRCS)))
-OBJS	:= $(patsubst %.o, $(OBJ_DIR)/%.o, $(OBJS))
-
-# 4.OUTPUT
-all: prog install
-	$(info $(APP_OUT)\makefile -> all success!)
-
-prog: $(OBJ_DIR)/$(APP_OUT)
-	$(info $(APP_OUT)\makefile -> $(OBJ_DIR)/$(APP_OUT))
-
-install: $(OUT_DIR)/$(APP_OUT)
- 	$(info $(APP)\makefile -> $(OUT_DIR)/$(APP_OUT))
+linux:
+	@for i in $(LINUX_PLATFORMS);                        \
+	do                                                  \
+		echo ========= compile [linux.$$i] =========;     \
+		$(MAKE) -f app.mk target_plat=linux platform=$$i; \
+	done
 
 clean:
-	$(RM) -rf $(OBJ_DIR)
-
-cleaninstall:
-	$(RM) $(OUT_DIR)/$(APP_OUT)
-
-cleanall: clean cleaninstall
-	$(info $(APP)\makefile -> clean all success!)
-
-# 5.common rule
-$(OBJ_DIR)/%.o : %.cpp
-	$(info creating $@ ...)
-	@$(MKDIR_P) $(OBJ_DIR) ..
-	$(CXX) -c $(CXXFLAGS) $(INCS_DIR) $< -o $@
-
-$(OBJ_DIR)/$(APP_OUT): $(OBJS)
-	$(info linking ...)
-	$(AR) $@ $(OBJS) $(LIBS)
-
-$(OUT_DIR)/$(APP_OUT): $(OBJ_DIR)/$(APP_OUT)
-	$(info installing ...)
-	@$(MKDIR_P) $(OUT_DIR) ..
-	@$(CP) $< $@
-
-#include $(subst .cpp,.d,$(SRCS))
-
-# 6.PHONY
-.PHONY: all prog install clean cleaninstall cleanall
+	rm -rf ../../../bin/obj
+	rm -rf ../../../lib/ios
+	rm -rf ../../../lib/mac
+	rm -rf ../../../lib/linux

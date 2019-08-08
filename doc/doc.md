@@ -11,6 +11,7 @@
 		* 6.1.3. [遇到的问题及解决方法](#-1)
 	* 6.2. [打包c++静态或动态库(.framework)](#c.framework)
 	* 6.3. [自动化脚本编译示例](#-1)
+		* 6.3.1. [遇到到问题](#-1)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -20,7 +21,7 @@
 
 # 跨平台、多语言调用c++组件
 ##  1. <a name=''></a>前言  
-  常言道：“千年的语言万年的c”。虽然近些年各类计算机语言层出不穷，但c语言作为最接近底层硬件的计算机高级语言，到目前为止，从来没有跌出过排行榜的前十名。同时作为超类的c++语言，虽然因为其自身的特性带来诸多争议，但它的火热几十年来也从未曾未退过，况且C++新标准的出炉，更是为它带来无限的活力。不可置否，在音视频开发、游戏引擎等追求高性能的领域，往往就采用c或c++作为sdk组件，来支撑上层以java、c#等语言开发的应用程序。  
+  常言道：“千年的语言万年的c”。虽然近些年各类计算机语言层出不穷，但c语言作为最接近底层硬件的计算机高级语言，到目前为止，从来没有跌出过排行榜的前十名。同样作为超类的c++语言，虽然因为其自身的特性带来诸多争议，但它的火热几十年来也从未曾未退过，况且C++新标准的出炉，更是为它带来无限的活力。不可置否，在音视频开发、游戏引擎等追求高性能的领域，往往就采用c或c++作为sdk组件，来支撑上层以java、c#等语言开发的应用程序。  
   本系列文章及工程范例，就以一个支持“四则运算”的计算器作为c++ sdk组件实现的简单功能，讲述如何在linux、windows、mac、android、iOS等不同的主流系统平台下，且使用c++、java、objective-c等各种不同的上层语言来对C++组件进行调用。简单来说，就是演示如何实现一个支持跨平台、多语言调用的c++组件。[下载源码示例](sss)  
   先来看看利用c++实现一个“四则运算”的计算器代码，功能相当简单：  
 ```
@@ -253,4 +254,47 @@ private:
 
 ###  6.2. <a name='c.framework'></a>打包c++静态或动态库(.framework)  
 
-###  6.3. <a name='-1'></a>自动化脚本编译示例
+###  6.3. <a name='-1'></a>自动化脚本编译示例  
+参考：  
+    [多平台编译脚本以及makefile自动化编译总结](https://blog.csdn.net/SoaringLee_fighting/article/details/82903592)  
+    [mac和ios通用编译环境](https://blog.csdn.net/SoaringLee_fighting/article/details/82856442)  
+
+####  6.3.1. <a name='-1'></a>遇到到问题  
+* 1.SDK "iphoneos" cannot be located,如图：  
+![图1](images/ios/s.error.1.png)
+    * 1).问题：  
+    ```
+    mac$ xcrun --sdk iphoneos --show-sdk-path
+    xcrun: error: SDK "iphoneos" cannot be located
+    ```
+
+    * 2).原因:  
+    ```
+    mac$ xcode-select --print-path
+    /Library/Developer/CommandLineTools
+
+    mac$ xcodebuild -showsdks
+    xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+    ```
+
+    * 3).解决方法：给Xcode命令行工具指定路径  
+    ```
+    mac$ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/
+    ```   
+
+    * 4).验证：  
+    ```
+    mac$ xcrun --sdk iphoneos --show-sdk-path
+    ```
+
+    参考：[SDK "iphoneos" cannot be located](https://www.cnblogs.com/zzugyl/p/5438869.html)  
+
+
+* 2.does not contain bitcode ,如图：  
+![图1](images/ios/s.error.2.png)   
+    * 1).原因：  
+    真机调试时，出现图上错误。是因为某些二进制库不支持bitcode.而Xcode默认是要支持bitcode的,而且如果支持的话,其中所有的二进制库和framework都必须包含bitcode.  
+    参考:[“does not contain bitcode.”的错误解决办法](https://www.jianshu.com/p/c5b38d1b6dfa)  
+
+    * 2).解决：  
+    将bitcode直接关掉就可以了。target ---> Built Seeting --->搜索 bitcode  --->将Yes置为No
