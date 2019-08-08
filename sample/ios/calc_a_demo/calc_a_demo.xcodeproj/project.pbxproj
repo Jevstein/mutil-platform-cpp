@@ -13,7 +13,7 @@
 		4F21A3B622F81F6B00CD503B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F21A3B522F81F6B00CD503B /* Assets.xcassets */; };
 		4F21A3B922F81F6B00CD503B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F21A3B722F81F6B00CD503B /* LaunchScreen.storyboard */; };
 		4F21A3BC22F81F6B00CD503B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F21A3BB22F81F6B00CD503B /* main.m */; };
-		4F21A3F222FBE85800CD503B /* libcalc_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F21A3F122FBE85800CD503B /* libcalc_sdk.a */; };
+		4F21A3F422FC081F00CD503B /* libcalc_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F21A3F322FC081F00CD503B /* libcalc_sdk.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		4F21A3B822F81F6B00CD503B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F21A3BA22F81F6B00CD503B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F21A3BB22F81F6B00CD503B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4F21A3F122FBE85800CD503B /* libcalc_sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcalc_sdk.a; path = ../../../lib/ios/arm64/libcalc_sdk.a; sourceTree = "<group>"; };
+		4F21A3F322FC081F00CD503B /* libcalc_sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcalc_sdk.a; path = ../../../lib/ios/libcalc_sdk.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F21A3F222FBE85800CD503B /* libcalc_sdk.a in Frameworks */,
+				4F21A3F422FC081F00CD503B /* libcalc_sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +78,7 @@
 		4F21A3C622F829FA00CD503B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4F21A3F122FBE85800CD503B /* libcalc_sdk.a */,
+				4F21A3F322FC081F00CD503B /* libcalc_sdk.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
