@@ -90,6 +90,15 @@ ifeq ($(findstring Darwin, $(OS)), Darwin)
             EXTRA_AFLAGS   := -f macho64 -m amd64
             ELF_DIR		   := mac64
         endif
+
+        ## XDefault
+        ifeq ($(platform), xDefault)
+            ARCH_DEF       :=
+            EXTRA_CFLAGS   := 
+            EXTRA_LFLAGS   := 
+            EXTRA_AFLAGS   := 
+            ELF_DIR		   := xDefault
+        endif
     endif ### MAC: ifeq ($(target_plat), mac)
 
     ###IOS
@@ -98,8 +107,8 @@ ifeq ($(findstring Darwin, $(OS)), Darwin)
 
 		## ios32: armv7
         ifeq ($(platform), ios32)
-            CXX := xcrun -sdk $(CROSS)os clang
-            CC  := xcrun -sdk $(CROSS)os clang
+            CXX := xcrun -sdk $(CROSS)os clang++
+            CC  := xcrun -sdk $(CROSS)os clang++
             CPP := g++
             AR  := ar
             ASM := gas-preprocessor.pl -arch arm -as-type apple-clang --$(CC)
@@ -113,8 +122,8 @@ ifeq ($(findstring Darwin, $(OS)), Darwin)
 
 		## ios64: armv64
         ifeq ($(platform), ios64)
-            CXX := xcrun -sdk $(CROSS)os clang
-            CC  := xcrun -sdk $(CROSS)os clang
+            CXX := xcrun -sdk $(CROSS)os clang++
+            CC  := xcrun -sdk $(CROSS)os clang++
             CPP := g++
             AR  := ar
             ASM := gas-preprocessor.pl -arch aarch64 -as-type apple-clang --$(CC)
@@ -128,8 +137,8 @@ ifeq ($(findstring Darwin, $(OS)), Darwin)
     
 		## ios_sim32: i386
         ifeq ($(platform), ios_sim32)
-            CXX := xcrun -sdk $(CROSS)simulator clang
-            CC  := xcrun -sdk $(CROSS)simulator clang
+            CXX := xcrun -sdk $(CROSS)simulator clang++
+            CC  := xcrun -sdk $(CROSS)simulator clang++
             CPP := g++
             AR  := ar
             ASM := yasm
@@ -144,8 +153,8 @@ ifeq ($(findstring Darwin, $(OS)), Darwin)
     
 		## ios_sim64: x86_64
         ifeq ($(platform), ios_sim64)
-            CXX := xcrun -sdk $(CROSS)simulator clang
-            CC  := xcrun -sdk $(CROSS)simulator clang
+            CXX := xcrun -sdk $(CROSS)simulator clang++
+            CC  := xcrun -sdk $(CROSS)simulator clang++
             CPP := g++
             AR  := ar
             ASM := yasm

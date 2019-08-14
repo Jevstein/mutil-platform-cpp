@@ -15,7 +15,7 @@
 #	endif//CALC_SDK_DLL_EXPORTS
 #	define CALLCON /*__stdcall*/
 #else
-#	define SDK_API extern
+#	define SDK_API EXT_C
 #	define CALLCON
 #endif//WIN32
 
