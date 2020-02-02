@@ -13,6 +13,11 @@ Calc::~Calc()
 {
 }
 
+void Calc::release()
+{
+	delete this;
+}
+
 const char* Calc::note()
 {
 	return "This is a simple calculator!";

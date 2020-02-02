@@ -15,7 +15,7 @@
 #	endif//CALC_SDK_DLL_EXPORTS
 #	define CALLCON /*__stdcall*/
 #else
-#	define SDK_API extern
+#	define SDK_API extern "C"
 #	define CALLCON
 #endif//WIN32
 
@@ -31,6 +31,7 @@ class ICalc
 {
 public:
     virtual ~ICalc(){}
+	virtual void release() = 0;
     virtual const char* note() = 0;
     virtual void bind_cbk(ICalcCbk* cbk) = 0;
 	

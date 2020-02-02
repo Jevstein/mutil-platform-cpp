@@ -7,6 +7,7 @@ class Calc : public ICalc
 public:
 	Calc();
 	virtual ~Calc();
+	virtual void release();
 
 public:
     virtual const char* note();
