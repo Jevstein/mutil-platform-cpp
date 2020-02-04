@@ -16,7 +16,7 @@
 //        if (calc){
 //            printf("note: %s\n", calc->note());
 //            printf("bind calc callback ...\n");
-////            CalcCbk *cbk = new CalcCbk();  calc->bind_cbk(cbk);
+////            CalcCbk *cbk = new CalcCbk();  calc->bind(cbk);
 //
 //            int a = 100;
 //            int b = 10;

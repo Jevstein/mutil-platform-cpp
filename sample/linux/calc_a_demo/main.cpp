@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 	if (calc)
 	{
 		printf("note: %s\n", calc->note());	
-		CalcCbk *cbk = new CalcCbk();  calc->bind_cbk(cbk);
+		CalcCbk *cbk = new CalcCbk();  calc->bind(cbk);
 
 		int a = 100;
 		int b = 10;

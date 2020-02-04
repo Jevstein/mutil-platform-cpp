@@ -11,7 +11,7 @@ public:
 
 public:
     virtual const char* note();
-    virtual void bind_cbk(ICalcCbk* cbk);
+    virtual void bind(ICalcCbk* cbk);
 	
 	virtual int add(int a, int b);
 	virtual int sub(int a, int b);

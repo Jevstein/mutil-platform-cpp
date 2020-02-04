@@ -11,12 +11,11 @@
 ### 1.CONFIG
 APP_NAME     = calc_sdk
 APP_OUT      = $(APP_NAME)
-# APP_OUTS     = lib$(APP_NAME).a lib$(APP_NAME).so
 APP_OUTS     = lib$(APP_NAME).a
-ROOT_DIR	 = ../../..
+ROOT_DIR	 = ../../../..
 PROJ_DIR     = .
-OUT_DIR      = $(ROOT_DIR)/lib/$(target_plat)
-OBJ_DIR		 = $(ROOT_DIR)/bin/obj/$(target_plat)
+OUT_DIR      = $(ROOT_DIR)/lib/$(target_plat)/a
+OBJ_DIR		 = $(ROOT_DIR)/bin/obj/$(target_plat)/a
 DEFS_DIR	 = 
 INCS_DIR	 = $(ROOT_DIR)/include
 LIBS_DIR	 = 
@@ -43,7 +42,7 @@ include platform.mk
 
 ARFLAGS		 := cru
  
-CFLAGS		 := $(DEBUG_FLAGS)
+CFLAGS		 := $(DEBUG_FLAGS) -stdlib=libc++
 CFLAGS		 += $(EXTRA_CFLAGS) -I$(INCS_DIR)
  
 ASMFLAGS	 :=
@@ -98,7 +97,7 @@ $(LIB_OUT): $(OBJS)
 
 $(DLIB_OUT): $(OBJS)
 	$(info [$(DBG_DATE)] linking $@ ...)
-	$(CXX) -shared $(LDFALGS) -o $@ $^ $(LIBS)
+	$(CXX) -shared $(LDFALGS) $^ $(LIBS) -o $@
 
 $(OBJ_DIR)/%.o : %.cpp
 	$(info [$(DBG_DATE)] compling $@ ...)

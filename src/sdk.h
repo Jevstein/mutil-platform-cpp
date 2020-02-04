@@ -33,7 +33,7 @@ public:
     virtual ~ICalc(){}
 	virtual void release() = 0;
     virtual const char* note() = 0;
-    virtual void bind_cbk(ICalcCbk* cbk) = 0;
+    virtual void bind(ICalcCbk* cbk) = 0;
 	
 	virtual int add(int a, int b) = 0;         
 	virtual int sub(int a, int b) = 0;         

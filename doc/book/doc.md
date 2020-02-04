@@ -35,7 +35,7 @@ public:
     virtual const char* note() {
         return "This is a simple calculator!";
     }
-    virtual void bind_cbk(ICalcCbk* cbk) {
+    virtual void bind(ICalcCbk* cbk) {
         cbk_ = cbk;
     }
     virtual int add(int a, int b) {
@@ -58,7 +58,7 @@ public:
 private:
     ICalcCbk* cbk_;
 };
-```  
+```
   Calc类实现了加减乘除，其中ICalcCbk是一个抽象类，提供了一个接口on_result()由上层实现。示例中每当操作四则运算时都会将sdk的信息通过on_result()回调到上层。正常实现的效果图如下：![演示效果图](images/win32/dll_result.png)  
   在软件工程化管理过程中，我们一般不会将源码直接给到第三方使用，而是提供一个库(library)文件。所谓的库文件，说白了就是一段编译好的二进制代码（相当于一个黑盒子），加上头文件（暴露出操作黑盒子的方法）就可以供别人使用。库的好处还可以减少编译的时间，对于某些不会进行大的改动的代码，我们把它打包成库，而库已经是编译好了的二进制文件，所以编译时只需要链接（link）一下即可，不再浪费编译的时间。  
   说到链接（Link），则有两种方式：静态链接和动态链接。于是便产生了静态库和动态库。
@@ -81,7 +81,7 @@ private:
     linux/android: .so  
     mac: .so, .dylib  
     ios: .dylib  
-    ```  
+    ```
 * framework  
   除了上面提到的.a 和.dylib 之外，Mac OS/iOS 平台还可以使用Framework。Framework实际上是一种打包方式，将库的二进制文件，头文件和有关的资源文件打包到一起，方便管理和分发。具体将在iOS章节会详细讲述。  
 
@@ -122,7 +122,7 @@ class ICalc
 public:
     virtual ~ICalc(){}
     virtual const char* note() = 0;
-    virtual void bind_cbk(ICalcCbk* cbk) = 0;
+    virtual void bind(ICalcCbk* cbk) = 0;
 	
     virtual int add(int a, int b) = 0;         
     virtual int sub(int a, int b) = 0;         
@@ -173,8 +173,8 @@ SDK_API	void CALLCON jvt_destroy_calc(ICalc* calc);
   然后，通过 lipo 命令将真机和模拟器的静态库进行合并，如打开终端输入：
     ```
     lipo -create iphoneos/libcalc_sdk.a iphonesimulator/libcalc_sdk.a -output libcalc_sdk.a
-    ```   
- 
+    ```
+
 * step5:
 展开“Project navigator/Products”节点，发现“libcalc_sdk.a”由红色变成了黑色，即编译成功。在刚刚生成的静态库“libcalc_sdk.a”上，右键菜单中选择“Show in Finder”并可以找到该静态库文件。  
 【注意】为了保持我们的工程一致，编译前可自定义libcalc_sdk.a生成的路径，如: ![图5.2](images/ios/a.5.2.jpg)   
@@ -226,7 +226,7 @@ private:
     if (calc){
         [self setOutput: [NSString stringWithFormat:@"note: %s",calc->note()]];
         //[self setOutput: @"bind calc callback"];
-        CalcCbk cbk;   calc->bind_cbk(&cbk);
+        CalcCbk cbk;   calc->bind(&cbk);
         cbk.registerHandle((__bridge void*)self, onResultHandler);
         
         int a = 100;
@@ -259,7 +259,7 @@ private:
     [多平台编译脚本以及makefile自动化编译总结](https://blog.csdn.net/SoaringLee_fighting/article/details/82903592)  
     [mac和ios通用编译环境](https://blog.csdn.net/SoaringLee_fighting/article/details/82856442)  
 
-####  6.3.1. <a name='-1'></a>遇到到问题  
+####  6.3.1. <a name='-1'></a>遇到的问题  
 * 1.SDK "iphoneos" cannot be located,如图：  
 ![图1](images/ios/s.error.1.png)
     * 1).问题：  
@@ -280,7 +280,7 @@ private:
     * 3).解决方法：给Xcode命令行工具指定路径  
     ```
     mac$ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/
-    ```   
+    ```
 
     * 4).验证：  
     ```
@@ -293,8 +293,8 @@ private:
 * 2.does not contain bitcode ,如图：  
 ![图1](images/ios/s.error.2.png)   
     * 1).原因：  
-    真机调试时，出现图上错误。是因为某些二进制库不支持bitcode.而Xcode默认是要支持bitcode的,而且如果支持的话,其中所有的二进制库和framework都必须包含bitcode.  
-    参考:[“does not contain bitcode.”的错误解决办法](https://www.jianshu.com/p/c5b38d1b6dfa)  
+      真机调试时，出现图上错误。是因为某些二进制库不支持bitcode.而Xcode默认是要支持bitcode的,而且如果支持的话,其中所有的二进制库和framework都必须包含bitcode.  
+      参考:[“does not contain bitcode.”的错误解决办法](https://www.jianshu.com/p/c5b38d1b6dfa)  
 
     * 2).解决：  
-    将bitcode直接关掉就可以了。target ---> Built Seeting --->搜索 bitcode  --->将Yes置为No
+      将bitcode直接关掉就可以了。target ---> Built Seeting --->搜索 bitcode  --->将Yes置为No

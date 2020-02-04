@@ -93,7 +93,7 @@ void onResultHandler(void* userData, const char *msg) {
     if (calc){
         [self setOutput: [NSString stringWithFormat:@"note: %s",calc->note()]];
         //[self setOutput: @"bind calc callback"];
-        CalcCbk cbk;   calc->bind_cbk(&cbk);
+        CalcCbk cbk;   calc->bind(&cbk);
         cbk.registerHandle((__bridge void*)self, onResultHandler);
         
         int a = 100;

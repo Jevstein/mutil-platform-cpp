@@ -128,13 +128,13 @@ int main(int argc, char* argv[])
 {
 	printf("====== This is an example of using a dynamic library in mac ======\n");
 
-	ModuleFactory fac("../../lib/libcalc_sdk.so");
+	ModuleFactory fac("../../lib/linux/so/libcalc_sdk.so");
 
 	ICalc *calc = fac.create_module<ICalc>("jvt_create_calc");
 	if (calc)
 	{
 		printf("note: %s\n", calc->note());	
-		CalcCbk *cbk = new CalcCbk();  calc->bind_cbk(cbk);
+		CalcCbk *cbk = new CalcCbk();  calc->bind(cbk);
 
 		int a = 100;
 		int b = 10;

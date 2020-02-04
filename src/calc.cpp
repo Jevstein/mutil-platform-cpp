@@ -1,5 +1,6 @@
 #include "calc.h"
-#include <cmath>
+// #include <cmath>
+#include <math.h>
 
 #define MIN_VALUE 1e-8
 #define IS_DOUBLE_ZERO(d)  (fabs(d) < MIN_VALUE)
@@ -23,7 +24,7 @@ const char* Calc::note()
 	return "This is a simple calculator!";
 }
 
-void Calc::bind_cbk(ICalcCbk* cbk)
+void Calc::bind(ICalcCbk* cbk)
 {
 	cbk_ = cbk;
 }
