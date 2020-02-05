@@ -10,6 +10,11 @@ Calc::Calc()
 {
 }
 
+Calc::Calc(ICalcCbk* cbk)
+: cbk_(cbk)
+{
+}
+
 Calc::~Calc()
 {
 }
@@ -22,11 +27,6 @@ void Calc::release()
 const char* Calc::note()
 {
 	return "This is a simple calculator!";
-}
-
-void Calc::bind(ICalcCbk* cbk)
-{
-	cbk_ = cbk;
 }
 
 int Calc::add(int a, int b)

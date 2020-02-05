@@ -40,11 +40,11 @@ public:
 - (void)calcTest{
     printf("====== This is an example of using a framework in iOS ======\n");
     
-    ICalc *calc = jvt_create_calc();
+    CalcCbk cbk;
+    ICalc *calc = create_calc(&cbk);
     if (calc){
         printf("note: %s\n", calc->note());
         //printf("bind calc callback ...\n");
-        CalcCbk cbk;  calc->bind(&cbk);
         
         int a = 100;
         int b = 10;
@@ -53,9 +53,9 @@ public:
         printf("mul(%d, %d) = %.2f\n", a, b, calc->mul((double)a, (double)b));
         printf("div(%d, %d) = %.2f\n", a, b, calc->div((double)a, (double)b));
         
-        jvt_destroy_calc(calc);
+        calc->release();
     } else {
-        printf("error: failed to call jvt_create_calc!\n");
+        printf("error: failed to call create_calc!\n");
     }
     
     printf("====== the end ======\n");

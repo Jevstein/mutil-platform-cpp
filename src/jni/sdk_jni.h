@@ -34,8 +34,8 @@
 
 // extern "C"
 // {
-// 	ICalc* jvt_create_calc();
-// 	void jvt_destroy_calc(ICalc* calc);
+// 	ICalc* create_calc();
+// 	void destroy_calc(ICalc* calc);
 // }
 
 #endif//_JVT_SDK_H_

@@ -33,7 +33,6 @@ public:
     virtual ~ICalc(){}
 	virtual void release() = 0;
     virtual const char* note() = 0;
-    virtual void bind(ICalcCbk* cbk) = 0;
 	
 	virtual int add(int a, int b) = 0;         
 	virtual int sub(int a, int b) = 0;         
@@ -42,7 +41,7 @@ public:
 };
 //#endif//__cplusplus
 
-SDK_API ICalc* CALLCON jvt_create_calc();
-SDK_API	void CALLCON jvt_destroy_calc(ICalc* calc);
+SDK_API ICalc* CALLCON create_calc(ICalcCbk* cbk);
+SDK_API	void CALLCON destroy_calc(ICalc* calc);
 
 #endif//_JVT_SDK_H_

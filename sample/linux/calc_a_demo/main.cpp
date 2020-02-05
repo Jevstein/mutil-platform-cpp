@@ -26,11 +26,11 @@ int main(int argc, char* argv[])
 {
 	printf("====== This is an example of using a static library in mac ======\n");
 
-	ICalc *calc = jvt_create_calc();
+	CalcCbk *cbk = new CalcCbk();
+	ICalc *calc = create_calc(cbk);
 	if (calc)
 	{
 		printf("note: %s\n", calc->note());	
-		CalcCbk *cbk = new CalcCbk();  calc->bind(cbk);
 
 		int a = 100;
 		int b = 10;
@@ -39,13 +39,13 @@ int main(int argc, char* argv[])
 		printf("mul(%d, %d) = %.2f\n", a, b, calc->mul((double)a, (double)b));
 		printf("div(%d, %d) = %.2f\n", a, b, calc->div((double)a, (double)b));
 
-		if (cbk) delete cbk;
-	    jvt_destroy_calc(calc);
+	    destroy_calc(calc);
 	}
 	else
 	{
 		printf("error: failed to create calc!\n");
 	}
+	if (cbk) delete cbk;
 
 	printf("====== the end ======\n");
 	return 0;

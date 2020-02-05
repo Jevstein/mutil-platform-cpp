@@ -4,14 +4,14 @@
 
 class Calc : public ICalc
 {
-public:
 	Calc();
+public:
+	Calc(ICalcCbk* cbk);
 	virtual ~Calc();
 	virtual void release();
 
 public:
     virtual const char* note();
-    virtual void bind(ICalcCbk* cbk);
 	
 	virtual int add(int a, int b);
 	virtual int sub(int a, int b);

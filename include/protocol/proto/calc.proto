@@ -1,0 +1,49 @@
+syntax = "proto2";
+
+//========= 加法 =========
+message JVT_OP_ADD_REQ
+{
+    optional int64 a = 1;
+    optional int64 b = 2;
+}
+
+message JVT_OP_ADD_ACK
+{
+    optional int64 r = 1;
+}
+
+//========= 减法 =========
+message JVT_OP_SUB_REQ
+{
+    optional int64 a = 1;
+    optional int64 b = 2;
+}
+
+message JVT_OP_SUB_ACK
+{
+    optional int64 r = 1;
+}
+
+//========= 乘法 =========
+message JVT_OP_MUL_REQ
+{
+    optional int64 a = 1;
+    optional int64 b = 2;
+}
+
+message JVT_OP_MUL_ACK
+{
+    optional int64 r = 1;
+}
+
+//========= 除法 =========
+message JVT_OP_DIV_REQ
+{
+    optional int64 a = 1;
+    optional int64 b = 2;
+}
+
+message JVT_OP_DIV_ACK
+{
+    optional int64 r = 1;
+}

@@ -22,7 +22,7 @@
 #include <Windows.h>
 #include "sdk.h"
 
-typedef ICalc* (*PFuncCreateCalc)();
+typedef ICalc* (*PFuncCreateCalc)(ICalcCbk *cbk);
 typedef void (*PFuncDestroyCalc)(ICalc* calc);
 
 class CalcCbk: public ICalcCbk
@@ -47,22 +47,22 @@ int main(int argc, char* argv[])
 			break;
 		}
 
-		PFuncCreateCalc create_func = (PFuncCreateCalc)GetProcAddress(module, "jvt_create_calc");
+		PFuncCreateCalc create_func = (PFuncCreateCalc)GetProcAddress(module, "create_calc");
 		if (!create_func)
 		{
 			//注意: define CALLCON __stdcall: sdk导出时若增加了调用约定，函数会被重命名。
 			//      windows查看dll的导出函数，可用软件depends.exe
 			//      若出现重命名问题，还可以通过编写def文件解决
-			printf("error: failed to get function jvt_create_calc!\n");
+			printf("error: failed to get function create_calc!\n");
 			break;
 		}
 
-		ICalc *calc = create_func();
+		CalcCbk cbk;
+		ICalc *calc = create_func(&cbk);
 		if (calc)
 		{
 			printf("note: %s\n", calc->note());
 			//printf("bind calc callback ...\n");	
-			CalcCbk *cbk = new CalcCbk();  calc->bind(cbk);
 
 			int a = 100;
 			int b = 10;
@@ -70,9 +70,6 @@ int main(int argc, char* argv[])
 			printf("sub(%d, %d) = %d\n", a, b, calc->sub(a, b));
 			printf("mul(%d, %d) = %.2f\n", a, b, calc->mul((double)a, (double)b));
 			printf("div(%d, %d) = %.2f\n", a, b, calc->div((double)a, (double)b));
-
-			if (cbk)
-				delete cbk;
 		}
 		else
 		{
@@ -80,10 +77,10 @@ int main(int argc, char* argv[])
 			break;
 		}
 
-		PFuncDestroyCalc destroy_func = (PFuncDestroyCalc)GetProcAddress(module, "jvt_destroy_calc");
+		PFuncDestroyCalc destroy_func = (PFuncDestroyCalc)GetProcAddress(module, "destroy_calc");
 		if (!destroy_func)
 		{
-			printf("error: failed to get function jvt_destroy_calc!\n");
+			printf("error: failed to get function destroy_calc!\n");
 			break;
 		}
 

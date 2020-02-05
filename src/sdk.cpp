@@ -1,12 +1,12 @@
 #include "sdk.h"
 #include "calc.h"
 
-SDK_API ICalc* CALLCON jvt_create_calc()
+SDK_API ICalc* CALLCON create_calc(ICalcCbk* cbk)
 {
-	return new Calc();
+	return new Calc(cbk);
 }
 
-SDK_API	void CALLCON jvt_destroy_calc(ICalc* calc)
+SDK_API	void CALLCON destroy_calc(ICalc* calc)
 {
 	if (calc)
 		delete calc;

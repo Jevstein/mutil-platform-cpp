@@ -13,27 +13,9 @@
 		4F621E0E22DF3062007DDE99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F621E0D22DF3062007DDE99 /* Assets.xcassets */; };
 		4F621E1122DF3062007DDE99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F621E0F22DF3062007DDE99 /* LaunchScreen.storyboard */; };
 		4F621E1422DF3062007DDE99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F621E1322DF3062007DDE99 /* main.m */; };
-		4F621E1E22DF3063007DDE99 /* calc_f_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F621E1D22DF3063007DDE99 /* calc_f_demoTests.m */; };
-		4F621E2922DF3063007DDE99 /* calc_f_demoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F621E2822DF3063007DDE99 /* calc_f_demoUITests.m */; };
-		4F621E3E22E007A7007DDE99 /* calc_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F621E3D22E007A7007DDE99 /* calc_sdk.framework */; };
+		870DE23323E960F00029C875 /* calc_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870DE23223E960F00029C875 /* calc_sdk.framework */; };
+		870DE23523E961FD0029C875 /* calc_sdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 870DE23223E960F00029C875 /* calc_sdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		4F621E1A22DF3063007DDE99 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4F621DF922DF3062007DDE99 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4F621E0022DF3062007DDE99;
-			remoteInfo = calc_f_demo;
-		};
-		4F621E2522DF3063007DDE99 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4F621DF922DF3062007DDE99 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4F621E0022DF3062007DDE99;
-			remoteInfo = calc_f_demo;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		4F621E3C22DF3728007DDE99 /* Embed Frameworks */ = {
@@ -42,6 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				870DE23523E961FD0029C875 /* calc_sdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,13 +42,7 @@
 		4F621E1022DF3062007DDE99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F621E1222DF3062007DDE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F621E1322DF3062007DDE99 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4F621E1922DF3063007DDE99 /* calc_f_demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calc_f_demoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F621E1D22DF3063007DDE99 /* calc_f_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = calc_f_demoTests.m; sourceTree = "<group>"; };
-		4F621E1F22DF3063007DDE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F621E2422DF3063007DDE99 /* calc_f_demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calc_f_demoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F621E2822DF3063007DDE99 /* calc_f_demoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = calc_f_demoUITests.m; sourceTree = "<group>"; };
-		4F621E2A22DF3063007DDE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F621E3D22E007A7007DDE99 /* calc_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = calc_sdk.framework; sourceTree = "<group>"; };
+		870DE23223E960F00029C875 /* calc_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = calc_sdk.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,21 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F621E3E22E007A7007DDE99 /* calc_sdk.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4F621E1622DF3063007DDE99 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4F621E2122DF3063007DDE99 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				870DE23323E960F00029C875 /* calc_sdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,10 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				4F621E0322DF3062007DDE99 /* calc_f_demo */,
-				4F621E1C22DF3063007DDE99 /* calc_f_demoTests */,
-				4F621E2722DF3063007DDE99 /* calc_f_demoUITests */,
 				4F621E0222DF3062007DDE99 /* Products */,
-				4F621E3D22E007A7007DDE99 /* calc_sdk.framework */,
+				870DE23223E960F00029C875 /* calc_sdk.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,8 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				4F621E0122DF3062007DDE99 /* calc_f_demo.app */,
-				4F621E1922DF3063007DDE99 /* calc_f_demoTests.xctest */,
-				4F621E2422DF3063007DDE99 /* calc_f_demoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,24 +88,6 @@
 				4F621E1322DF3062007DDE99 /* main.m */,
 			);
 			path = calc_f_demo;
-			sourceTree = "<group>";
-		};
-		4F621E1C22DF3063007DDE99 /* calc_f_demoTests */ = {
-			isa = PBXGroup;
-			children = (
-				4F621E1D22DF3063007DDE99 /* calc_f_demoTests.m */,
-				4F621E1F22DF3063007DDE99 /* Info.plist */,
-			);
-			path = calc_f_demoTests;
-			sourceTree = "<group>";
-		};
-		4F621E2722DF3063007DDE99 /* calc_f_demoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4F621E2822DF3063007DDE99 /* calc_f_demoUITests.m */,
-				4F621E2A22DF3063007DDE99 /* Info.plist */,
-			);
-			path = calc_f_demoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,42 +111,6 @@
 			productReference = 4F621E0122DF3062007DDE99 /* calc_f_demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4F621E1822DF3063007DDE99 /* calc_f_demoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4F621E3022DF3063007DDE99 /* Build configuration list for PBXNativeTarget "calc_f_demoTests" */;
-			buildPhases = (
-				4F621E1522DF3063007DDE99 /* Sources */,
-				4F621E1622DF3063007DDE99 /* Frameworks */,
-				4F621E1722DF3063007DDE99 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4F621E1B22DF3063007DDE99 /* PBXTargetDependency */,
-			);
-			name = calc_f_demoTests;
-			productName = calc_f_demoTests;
-			productReference = 4F621E1922DF3063007DDE99 /* calc_f_demoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		4F621E2322DF3063007DDE99 /* calc_f_demoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4F621E3322DF3063007DDE99 /* Build configuration list for PBXNativeTarget "calc_f_demoUITests" */;
-			buildPhases = (
-				4F621E2022DF3063007DDE99 /* Sources */,
-				4F621E2122DF3063007DDE99 /* Frameworks */,
-				4F621E2222DF3063007DDE99 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4F621E2622DF3063007DDE99 /* PBXTargetDependency */,
-			);
-			name = calc_f_demoUITests;
-			productName = calc_f_demoUITests;
-			productReference = 4F621E2422DF3063007DDE99 /* calc_f_demoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -218,16 +123,6 @@
 					4F621E0022DF3062007DDE99 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
-					};
-					4F621E1822DF3063007DDE99 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 4F621E0022DF3062007DDE99;
-					};
-					4F621E2322DF3063007DDE99 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 4F621E0022DF3062007DDE99;
 					};
 				};
 			};
@@ -245,8 +140,6 @@
 			projectRoot = "";
 			targets = (
 				4F621E0022DF3062007DDE99 /* calc_f_demo */,
-				4F621E1822DF3063007DDE99 /* calc_f_demoTests */,
-				4F621E2322DF3063007DDE99 /* calc_f_demoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,20 +152,6 @@
 				4F621E1122DF3062007DDE99 /* LaunchScreen.storyboard in Resources */,
 				4F621E0E22DF3062007DDE99 /* Assets.xcassets in Resources */,
 				4F621E0C22DF3062007DDE99 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4F621E1722DF3063007DDE99 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4F621E2222DF3063007DDE99 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,36 +168,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F621E1522DF3063007DDE99 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4F621E1E22DF3063007DDE99 /* calc_f_demoTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4F621E2022DF3063007DDE99 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4F621E2922DF3063007DDE99 /* calc_f_demoUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4F621E1B22DF3063007DDE99 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4F621E0022DF3062007DDE99 /* calc_f_demo */;
-			targetProxy = 4F621E1A22DF3063007DDE99 /* PBXContainerItemProxy */;
-		};
-		4F621E2622DF3063007DDE99 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4F621E0022DF3062007DDE99 /* calc_f_demo */;
-			targetProxy = 4F621E2522DF3063007DDE99 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4F621E0A22DF3062007DDE99 /* Main.storyboard */ = {
@@ -480,60 +330,6 @@
 			};
 			name = Release;
 		};
-		4F621E3122DF3063007DDE99 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = calc_f_demoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvtstudio.calc-f-demoTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/calc_f_demo.app/calc_f_demo";
-			};
-			name = Debug;
-		};
-		4F621E3222DF3063007DDE99 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = calc_f_demoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvtstudio.calc-f-demoTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/calc_f_demo.app/calc_f_demo";
-			};
-			name = Release;
-		};
-		4F621E3422DF3063007DDE99 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = calc_f_demoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvtstudio.calc-f-demoUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = calc_f_demo;
-			};
-			name = Debug;
-		};
-		4F621E3522DF3063007DDE99 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = calc_f_demoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvtstudio.calc-f-demoUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = calc_f_demo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -551,24 +347,6 @@
 			buildConfigurations = (
 				4F621E2E22DF3063007DDE99 /* Debug */,
 				4F621E2F22DF3063007DDE99 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4F621E3022DF3063007DDE99 /* Build configuration list for PBXNativeTarget "calc_f_demoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4F621E3122DF3063007DDE99 /* Debug */,
-				4F621E3222DF3063007DDE99 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4F621E3322DF3063007DDE99 /* Build configuration list for PBXNativeTarget "calc_f_demoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4F621E3422DF3063007DDE99 /* Debug */,
-				4F621E3522DF3063007DDE99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

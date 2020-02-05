@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F621DE022DF25BC007DDE99 /* calc_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F621DD622DF25BB007DDE99 /* calc_sdk.framework */; };
-		4F621DE522DF25BC007DDE99 /* calc_sdkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F621DE422DF25BC007DDE99 /* calc_sdkTests.m */; };
 		4F621DE722DF25BC007DDE99 /* calc_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F621DD922DF25BC007DDE99 /* calc_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4F621DF422DF2650007DDE99 /* calc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F621DF022DF2650007DDE99 /* calc.cpp */; };
 		4F621DF522DF2650007DDE99 /* calc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F621DF122DF2650007DDE99 /* calc.h */; };
@@ -16,23 +14,10 @@
 		4F621DF722DF2650007DDE99 /* sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F621DF322DF2650007DDE99 /* sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4F621DE122DF25BC007DDE99 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4F621DCD22DF25BB007DDE99 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4F621DD522DF25BB007DDE99;
-			remoteInfo = calc_sdk_f;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		4F621DD622DF25BB007DDE99 /* calc_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = calc_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F621DD922DF25BC007DDE99 /* calc_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = calc_sdk.h; sourceTree = "<group>"; };
 		4F621DDA22DF25BC007DDE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F621DDF22DF25BC007DDE99 /* calc_sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calc_sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F621DE422DF25BC007DDE99 /* calc_sdkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = calc_sdkTests.m; sourceTree = "<group>"; };
-		4F621DE622DF25BC007DDE99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F621DF022DF2650007DDE99 /* calc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = calc.cpp; path = ../../../../src/calc.cpp; sourceTree = "<group>"; };
 		4F621DF122DF2650007DDE99 /* calc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = calc.h; path = ../../../../src/calc.h; sourceTree = "<group>"; };
 		4F621DF222DF2650007DDE99 /* sdk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sdk.cpp; path = ../../../../src/sdk.cpp; sourceTree = "<group>"; };
@@ -47,14 +32,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F621DDC22DF25BC007DDE99 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4F621DE022DF25BC007DDE99 /* calc_sdk.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -66,7 +43,6 @@
 				4F621DF222DF2650007DDE99 /* sdk.cpp */,
 				4F621DF322DF2650007DDE99 /* sdk.h */,
 				4F621DD822DF25BB007DDE99 /* calc_sdk */,
-				4F621DE322DF25BC007DDE99 /* calc_sdkTests */,
 				4F621DD722DF25BB007DDE99 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				4F621DD622DF25BB007DDE99 /* calc_sdk.framework */,
-				4F621DDF22DF25BC007DDE99 /* calc_sdkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,15 +62,6 @@
 				4F621DDA22DF25BC007DDE99 /* Info.plist */,
 			);
 			path = calc_sdk;
-			sourceTree = "<group>";
-		};
-		4F621DE322DF25BC007DDE99 /* calc_sdkTests */ = {
-			isa = PBXGroup;
-			children = (
-				4F621DE422DF25BC007DDE99 /* calc_sdkTests.m */,
-				4F621DE622DF25BC007DDE99 /* Info.plist */,
-			);
-			path = calc_sdkTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,24 +98,6 @@
 			productReference = 4F621DD622DF25BB007DDE99 /* calc_sdk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4F621DDE22DF25BC007DDE99 /* calc_sdkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4F621DED22DF25BC007DDE99 /* Build configuration list for PBXNativeTarget "calc_sdkTests" */;
-			buildPhases = (
-				4F621DDB22DF25BC007DDE99 /* Sources */,
-				4F621DDC22DF25BC007DDE99 /* Frameworks */,
-				4F621DDD22DF25BC007DDE99 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4F621DE222DF25BC007DDE99 /* PBXTargetDependency */,
-			);
-			name = calc_sdkTests;
-			productName = calc_sdk_fTests;
-			productReference = 4F621DDF22DF25BC007DDE99 /* calc_sdkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -160,10 +108,6 @@
 				ORGANIZATIONNAME = jevstein;
 				TargetAttributes = {
 					4F621DD522DF25BB007DDE99 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
-					4F621DDE22DF25BC007DDE99 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -182,20 +126,12 @@
 			projectRoot = "";
 			targets = (
 				4F621DD522DF25BB007DDE99 /* calc_sdk */,
-				4F621DDE22DF25BC007DDE99 /* calc_sdkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4F621DD422DF25BB007DDE99 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4F621DDD22DF25BC007DDE99 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -214,23 +150,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F621DDB22DF25BC007DDE99 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4F621DE522DF25BC007DDE99 /* calc_sdkTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4F621DE222DF25BC007DDE99 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4F621DD522DF25BB007DDE99 /* calc_sdk */;
-			targetProxy = 4F621DE122DF25BC007DDE99 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4F621DE822DF25BC007DDE99 /* Debug */ = {
@@ -355,7 +275,8 @@
 				INFOPLIST_FILE = calc_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvtstudio.calc-sdk-f";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -375,40 +296,11 @@
 				INFOPLIST_FILE = calc_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jvtstudio.calc-sdk-f";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		4F621DEE22DF25BC007DDE99 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEAD_CODE_STRIPPING = YES;
-				INFOPLIST_FILE = calc_sdkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LINK_WITH_STANDARD_LIBRARIES = YES;
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvtstudio.calc-sdk-fTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		4F621DEF22DF25BC007DDE99 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEAD_CODE_STRIPPING = YES;
-				INFOPLIST_FILE = calc_sdkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LINK_WITH_STANDARD_LIBRARIES = YES;
-				MACH_O_TYPE = staticlib;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jvtstudio.calc-sdk-fTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -430,15 +322,6 @@
 			buildConfigurations = (
 				4F621DEB22DF25BC007DDE99 /* Debug */,
 				4F621DEC22DF25BC007DDE99 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4F621DED22DF25BC007DDE99 /* Build configuration list for PBXNativeTarget "calc_sdkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4F621DEE22DF25BC007DDE99 /* Debug */,
-				4F621DEF22DF25BC007DDE99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -12,7 +12,7 @@
 @implementation calc_sdk_a
 
 //- (void)test{
-//        ICalc *calc = jvt_create_calc();
+//        ICalc *calc = create_calc();
 //        if (calc){
 //            printf("note: %s\n", calc->note());
 //            printf("bind calc callback ...\n");
@@ -28,9 +28,9 @@
 ////            if (cbk)
 ////                delete cbk;
 //
-//            jvt_destroy_calc(calc);
+//            destroy_calc(calc);
 //        } else {
-//            printf("error: failed to call jvt_create_calc!\n");
+//            printf("error: failed to call create_calc!\n");
 //        }
 //}
 @end

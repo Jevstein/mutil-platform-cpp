@@ -65,16 +65,16 @@ public:
 
 public:
     template<class T>
-    T* create_module(const char* func_name)
+    T* create_module(const char* func_name, ICalcCbk *cbk)
     {
-        typedef	T* (*PFN)();
+        typedef	T* (*PFN)(ICalcCbk *);
         PFN pfn = 0;
         T* func = 0;
         
 		pfn = (PFN)load_func(func_name);
         if (pfn)
         {
-            func = pfn();
+            func = pfn(cbk);
         }
         return func;
     }
@@ -130,11 +130,11 @@ int main(int argc, char* argv[])
 
 	ModuleFactory fac("../../lib/linux/so/libcalc_sdk.so");
 
-	ICalc *calc = fac.create_module<ICalc>("jvt_create_calc");
+	CalcCbk *cbk = new CalcCbk();
+	ICalc *calc = fac.create_module<ICalc>("create_calc", cbk);
 	if (calc)
 	{
 		printf("note: %s\n", calc->note());	
-		CalcCbk *cbk = new CalcCbk();  calc->bind(cbk);
 
 		int a = 100;
 		int b = 10;
@@ -143,13 +143,13 @@ int main(int argc, char* argv[])
 		printf("mul(%d, %d) = %.2f\n", a, b, calc->mul((double)a, (double)b));
 		printf("div(%d, %d) = %.2f\n", a, b, calc->div((double)a, (double)b));
 
-		if (cbk) delete cbk;
 		calc->release();
 	}
 	else
 	{
 		printf("error: failed to create calc!\n");
 	}
+	if (cbk) delete cbk;
 
 	printf("====== the end ======\n");
 	return 0;

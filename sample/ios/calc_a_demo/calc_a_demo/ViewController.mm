@@ -89,12 +89,12 @@ void onResultHandler(void* userData, const char *msg) {
 - (void)calcTest{
     [self setOutput:@"=== This is an example of using a static library in iOS ==="];
     
-    ICalc *calc = jvt_create_calc();
+    CalcCbk cbk;
+    cbk.registerHandle((__bridge void*)self, onResultHandler);
+    ICalc *calc = create_calc(&cbk);
     if (calc){
         [self setOutput: [NSString stringWithFormat:@"note: %s",calc->note()]];
         //[self setOutput: @"bind calc callback"];
-        CalcCbk cbk;   calc->bind(&cbk);
-        cbk.registerHandle((__bridge void*)self, onResultHandler);
         
         int a = 100;
         int b = 10;
@@ -103,9 +103,9 @@ void onResultHandler(void* userData, const char *msg) {
         [self setOutput: [NSString stringWithFormat:@"mul(%d, %d) = %.2f", a, b, calc->mul((double)a, (double)b)]];
         [self setOutput: [NSString stringWithFormat:@"div(%d, %d) = %.2f", a, b, calc->div((double)a, (double)b)]];
         
-        jvt_destroy_calc(calc);
+        calc->release();
     } else {
-        [self setOutput: @"error: failed to call jvt_create_calc!"];
+        [self setOutput: @"error: failed to call create_calc!"];
     }
     
     [self setOutput: @"========= the end ========="];
