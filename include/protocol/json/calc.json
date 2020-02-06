@@ -1,0 +1,17 @@
+JVT_KEY: { "opcode":101, "id":1001 }
+
+//========= 加法 =========
+JVT_OP_ADD_REQ: { "a": 100, "b": 10 }
+JVT_OP_ADD_ACK: { "a": 110 }
+
+//========= 减法 =========
+JVT_OP_SUB_REQ: { "a": 100, "b": 10 }
+JVT_OP_SUB_ACK: { "r": 90 }
+
+//========= 乘法 =========
+JVT_OP_MUL_REQ: { "a": 100, "b": 10 }
+JVT_OP_MUL_ACK: { "a": 1000 }
+
+//========= 除法 =========
+JVT_OP_DIV_REQ: { "a": 100, "b": 10 }
+JVT_OP_DIV_ACK: { "r": 10 }

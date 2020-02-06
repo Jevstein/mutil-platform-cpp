@@ -1,5 +1,11 @@
 syntax = "proto2";
 
+message JVT_KEY
+{
+    optional int opcode = 1;
+    optional int id     = 2;
+}
+
 //========= 加法 =========
 message JVT_OP_ADD_REQ
 {
